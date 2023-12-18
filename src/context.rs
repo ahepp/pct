@@ -15,20 +15,9 @@ pub struct Context {
 }
 impl Context {
     pub fn new() -> Self {
-        let towns = vec![
-            Town {
-                name: "Campo".to_string(),
-                mm: 1.4,
-            },
-            Town {
-                name: "Lake Morena".to_string(),
-                mm: 20.0,
-            },
-            Town {
-                name: "Mount Laguna".to_string(),
-                mm: 41.5,
-            },
-        ];
+        let filename = "towns.json";
+        let contents = std::fs::read_to_string(filename).unwrap();
+        let towns: Vec<Town> = serde_json::from_str(&contents).unwrap();
         Context {
             mm: 0.0,
             time: 8.0,
@@ -47,6 +36,7 @@ impl Context {
     }
 }
 
+#[derive(serde_derive::Deserialize)]
 pub struct Town {
     pub name: String,
     pub mm: f32,
