@@ -12,6 +12,6 @@ impl State for BeginGame {
         println!("Welcome to the Pacific Crest Trail!");
     }
     fn next_state(self: Box<Self>) -> Option<Box<dyn State>> {
-        None,
+        Some(Box::new(EndGame))
     }
 }
