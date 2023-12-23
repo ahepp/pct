@@ -1,2 +1,5 @@
 digraph states {
+    start [label="" shape=circle style=filled color=black]
+    end [label="" shape=doublecircle style=filled color=black]
+    start -> end
 }
