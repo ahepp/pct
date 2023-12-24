@@ -1,4 +1,5 @@
-use crate::end_game::EndGame;
+use crate::begin_day::BeginDay;
+use crate::context::Context;
 use crate::state::State;
 
 pub struct BeginGame;
@@ -12,6 +13,6 @@ impl State for BeginGame {
         println!("Welcome to the Pacific Crest Trail!");
     }
     fn next_state(self: Box<Self>) -> Option<Box<dyn State>> {
-        Some(Box::new(EndGame))
+        Some(Box::new(BeginDay::new(Context::new())))
     }
 }
