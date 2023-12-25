@@ -3,7 +3,8 @@ digraph states {
     end [label="" shape=doublecircle style=filled color=black]
     start -> BeginGame
     BeginGame -> BeginDay
-    BeginDay -> BeginDay
+    BeginDay -> BeginHiking
+    BeginHiking -> BeginDay
     EndGame -> end
     
 }
