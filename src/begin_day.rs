@@ -19,9 +19,11 @@ impl State for BeginDay {
     }
     fn next_state(self: Box<Self>) -> Option<Box<dyn State>> {
         let day = self.ctx.day + 1;
+        let waketime = self.ctx.waketime;
 
         let mut next_ctx = self.ctx;
         next_ctx.day = day;
+        next_ctx.time = waketime;
         Some(Box::new(BeginHiking::new(next_ctx)))
     }
 }
