@@ -1,4 +1,4 @@
-use crate::begin_day::BeginDay;
+use crate::begin_meal::BeginMeal;
 use crate::begin_town::BeginTown;
 use crate::context::Context;
 use crate::state::State;
@@ -43,7 +43,7 @@ impl State for BeginHiking {
         next_ctx.time = time;
         match is_town {
             true => Some(Box::new(BeginTown::new(next_ctx))),
-            false => Some(Box::new(BeginDay::new(next_ctx))),
+            false => Some(Box::new(BeginMeal::new(next_ctx))),
         }
     }
 }

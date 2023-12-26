@@ -4,8 +4,10 @@ digraph states {
     start -> BeginGame
     BeginGame -> BeginDay
     BeginDay -> BeginHiking
-    BeginHiking -> BeginDay
     BeginHiking -> BeginTown
+    BeginHiking -> BeginMeal
     BeginTown -> BeginHiking
+    BeginMeal -> BeginDay
+    BeginMeal -> EndGame
     EndGame -> end
 }
