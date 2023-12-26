@@ -6,7 +6,9 @@ digraph states {
     BeginDay -> BeginHiking
     BeginHiking -> BeginTown
     BeginHiking -> BeginMeal
-    BeginTown -> BeginHiking
+    BeginTown -> PromptTown
+    PromptTown -> BeginHiking
+    PromptTown -> EndGame
     BeginMeal -> BeginDay
     BeginMeal -> EndGame
     EndGame -> end

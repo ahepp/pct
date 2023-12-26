@@ -1,7 +1,6 @@
-use crate::begin_hiking::BeginHiking;
+use crate::prompt_town::PromptTown;
 use crate::context::Context;
 use crate::state::State;
-use crate::util::*;
 
 pub struct BeginTown {
     ctx: Context,
@@ -19,13 +18,12 @@ impl State for BeginTown {
             "{:>5.2} You entered town {} at mi {:.2}",
             time, town.name, town.mm
         );
-        std::thread::sleep(std::time::Duration::from_millis(RENDER_DELAY_MS));
     }
     fn next_state(self: Box<Self>) -> Option<Box<dyn State>> {
         let town_idx = self.ctx.town_idx + 1;
 
         let mut next_ctx = self.ctx;
         next_ctx.town_idx = town_idx;
-        Some(Box::new(BeginHiking::new(next_ctx)))
+        Some(Box::new(PromptTown::new(next_ctx)))
     }
 }
