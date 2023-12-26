@@ -2,6 +2,7 @@ use crate::begin_day::BeginDay;
 use crate::context::Context;
 use crate::end_game::EndGame;
 use crate::state::State;
+use crate::util::*;
 
 pub struct BeginMeal {
     ctx: Context,
@@ -24,6 +25,7 @@ impl State for BeginMeal {
             println!("You ate {:.2} food", self.ctx.food_per_day);
             println!("You have {:.2} food remaining", food);
         }
+        std::thread::sleep(std::time::Duration::from_millis(RENDER_DELAY_MS));
     }
     fn next_state(self: Box<Self>) -> Option<Box<dyn State>> {
         let food = self.ctx.food - self.ctx.food_per_day;

@@ -1,6 +1,7 @@
 use crate::begin_hiking::BeginHiking;
 use crate::context::Context;
 use crate::state::State;
+use crate::util::*;
 
 pub struct BeginDay {
     ctx: Context,
@@ -16,6 +17,7 @@ impl State for BeginDay {
         let day_num = self.ctx.day + 1;
         let mm = self.ctx.mm;
         println!("\n{:>5.2} You began day {} at mi {:.2}", time, day_num, mm);
+        std::thread::sleep(std::time::Duration::from_millis(RENDER_DELAY_MS));
     }
     fn next_state(self: Box<Self>) -> Option<Box<dyn State>> {
         let day = self.ctx.day + 1;
