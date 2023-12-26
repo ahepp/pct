@@ -1,5 +1,5 @@
-use crate::prompt_town::PromptTown;
 use crate::context::Context;
+use crate::prompt_town::PromptTown;
 use crate::state::State;
 
 pub struct BeginTown {

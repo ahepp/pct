@@ -14,6 +14,25 @@ impl PromptTown {
 }
 impl State for PromptTown {
     fn render(&self) {
+        match distance_to_town(&self.ctx) {
+            Some(distance) => {
+                let hours_to_town = distance / self.ctx.speed;
+                let time_today = self.ctx.bedtime - self.ctx.time;
+                let time_per_day = self.ctx.bedtime - self.ctx.waketime;
+                let days_of_food = (hours_to_town - time_today)
+                    .clamp(0.0, f32::INFINITY)
+                    / time_per_day;
+                println!(
+                    "You are {} days from the next town",
+                    days_of_food.ceil()
+                );
+            }
+            None => {}
+        }
+
+        let days_of_food = self.ctx.food / self.ctx.food_per_day;
+        println!("You are {} days from running out of food", days_of_food);
+
         let actions = vec![Action::Continue, Action::Quit];
         for (i, action) in actions.into_iter().enumerate() {
             println!("{}) {}", i, action);
@@ -30,12 +49,8 @@ impl State for PromptTown {
             println!("You can't do that");
         };
         match action {
-            Action::Continue => {
-                Some(Box::new(BeginHiking::new(self.ctx)))
-            },
-            Action::Quit => {
-                Some(Box::new(EndGame))
-            },
+            Action::Continue => Some(Box::new(BeginHiking::new(self.ctx))),
+            Action::Quit => Some(Box::new(EndGame)),
         }
     }
 }
