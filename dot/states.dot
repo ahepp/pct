@@ -8,8 +8,10 @@ digraph states {
     BeginHiking -> BeginMeal
     BeginTown -> PromptTown
     PromptTown -> BeginHiking
+    PromptTown -> PromptFood
     PromptTown -> EndGame
     BeginMeal -> BeginDay
     BeginMeal -> EndGame
+    PromptFood -> PromptTown
     EndGame -> end
 }

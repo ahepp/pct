@@ -10,6 +10,13 @@ pub fn retry_line() -> String {
     }
 }
 
+pub fn retry_f32() -> f32 {
+    match retry_line().trim().parse() {
+        Ok(val) => val,
+        Err(_) => retry_f32(),
+    }
+}
+
 pub fn retry_usize() -> usize {
     match retry_line().trim().parse() {
         Ok(val) => val,

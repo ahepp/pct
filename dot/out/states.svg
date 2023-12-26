@@ -29,8 +29,8 @@
 <!-- end -->
 <g id="node2" class="node">
 <title>end</title>
-<ellipse fill="black" stroke="black" cx="175.42" cy="-22" rx="18" ry="18"/>
-<ellipse fill="none" stroke="black" cx="175.42" cy="-22" rx="22" ry="22"/>
+<ellipse fill="black" stroke="black" cx="219.42" cy="-22" rx="18" ry="18"/>
+<ellipse fill="none" stroke="black" cx="219.42" cy="-22" rx="22" ry="22"/>
 </g>
 <!-- BeginDay -->
 <g id="node4" class="node">
@@ -83,50 +83,68 @@
 <!-- PromptTown -->
 <g id="node8" class="node">
 <title>PromptTown</title>
-<ellipse fill="none" stroke="black" cx="131.42" cy="-170" rx="60.05" ry="18"/>
-<text text-anchor="middle" x="131.42" y="-164.95" font-family="Times,serif" font-size="14.00">PromptTown</text>
+<ellipse fill="none" stroke="black" cx="95.42" cy="-170" rx="60.05" ry="18"/>
+<text text-anchor="middle" x="95.42" y="-164.95" font-family="Times,serif" font-size="14.00">PromptTown</text>
 </g>
 <!-- BeginTown&#45;&gt;PromptTown -->
 <g id="edge6" class="edge">
 <title>BeginTown&#45;&gt;PromptTown</title>
-<path fill="none" stroke="black" d="M72.28,-224.76C81.96,-215.97 94.1,-204.93 104.86,-195.14"/>
-<polygon fill="black" stroke="black" points="106.96,-197.97 112.01,-188.65 102.25,-192.79 106.96,-197.97"/>
+<path fill="none" stroke="black" d="M64.35,-224.05C68.98,-216.14 74.61,-206.54 79.79,-197.69"/>
+<polygon fill="black" stroke="black" points="82.79,-199.49 84.82,-189.1 76.75,-195.95 82.79,-199.49"/>
 </g>
 <!-- BeginMeal&#45;&gt;BeginDay -->
-<g id="edge9" class="edge">
+<g id="edge10" class="edge">
 <title>BeginMeal&#45;&gt;BeginDay</title>
 <path fill="none" stroke="black" d="M217.42,-260.39C215.02,-278.56 210.31,-307.77 202.42,-332 199.58,-340.74 195.62,-349.92 191.7,-358.13"/>
 <polygon fill="black" stroke="black" points="188.66,-356.39 187.33,-366.91 194.92,-359.52 188.66,-356.39"/>
 </g>
 <!-- EndGame -->
-<g id="node9" class="node">
+<g id="node10" class="node">
 <title>EndGame</title>
-<ellipse fill="none" stroke="black" cx="175.42" cy="-98" rx="48.28" ry="18"/>
-<text text-anchor="middle" x="175.42" y="-92.95" font-family="Times,serif" font-size="14.00">EndGame</text>
+<ellipse fill="none" stroke="black" cx="219.42" cy="-98" rx="48.28" ry="18"/>
+<text text-anchor="middle" x="219.42" y="-92.95" font-family="Times,serif" font-size="14.00">EndGame</text>
 </g>
 <!-- BeginMeal&#45;&gt;EndGame -->
-<g id="edge10" class="edge">
+<g id="edge11" class="edge">
 <title>BeginMeal&#45;&gt;EndGame</title>
-<path fill="none" stroke="black" d="M216.93,-223.62C214.04,-205.45 208.61,-176.25 200.42,-152 197.48,-143.29 193.5,-134.12 189.58,-125.9"/>
-<polygon fill="black" stroke="black" points="192.81,-124.53 185.23,-117.13 186.54,-127.64 192.81,-124.53"/>
+<path fill="none" stroke="black" d="M219.42,-223.59C219.42,-199.61 219.42,-156.14 219.42,-127.42"/>
+<polygon fill="black" stroke="black" points="222.92,-127.62 219.42,-117.62 215.92,-127.62 222.92,-127.62"/>
 </g>
 <!-- PromptTown&#45;&gt;BeginHiking -->
 <g id="edge7" class="edge">
 <title>PromptTown&#45;&gt;BeginHiking</title>
-<path fill="none" stroke="black" d="M131.78,-188.11C132.29,-211.92 133.2,-255.37 133.81,-284.22"/>
-<polygon fill="black" stroke="black" points="130.31,-284.15 134.02,-294.07 137.31,-284 130.31,-284.15"/>
+<path fill="none" stroke="black" d="M103.46,-187.86C108.09,-198.12 113.71,-211.59 117.42,-224 123.36,-243.83 127.69,-266.8 130.49,-284.44"/>
+<polygon fill="black" stroke="black" points="127.01,-284.82 131.96,-294.19 133.93,-283.78 127.01,-284.82"/>
+</g>
+<!-- PromptFood -->
+<g id="node9" class="node">
+<title>PromptFood</title>
+<ellipse fill="none" stroke="black" cx="95.42" cy="-98" rx="57.49" ry="18"/>
+<text text-anchor="middle" x="95.42" y="-92.95" font-family="Times,serif" font-size="14.00">PromptFood</text>
+</g>
+<!-- PromptTown&#45;&gt;PromptFood -->
+<g id="edge8" class="edge">
+<title>PromptTown&#45;&gt;PromptFood</title>
+<path fill="none" stroke="black" d="M89.51,-151.7C88.75,-144.41 88.51,-135.73 88.78,-127.54"/>
+<polygon fill="black" stroke="black" points="92.26,-127.82 89.43,-117.61 85.28,-127.36 92.26,-127.82"/>
 </g>
 <!-- PromptTown&#45;&gt;EndGame -->
-<g id="edge8" class="edge">
+<g id="edge9" class="edge">
 <title>PromptTown&#45;&gt;EndGame</title>
-<path fill="none" stroke="black" d="M142.07,-152.05C147.1,-144.06 153.21,-134.33 158.83,-125.4"/>
-<polygon fill="black" stroke="black" points="161.71,-127.4 164.06,-117.07 155.78,-123.67 161.71,-127.4"/>
+<path fill="none" stroke="black" d="M122.63,-153.64C140.52,-143.54 164.12,-130.22 183.54,-119.26"/>
+<polygon fill="black" stroke="black" points="185.24,-122.32 192.23,-114.35 181.8,-116.22 185.24,-122.32"/>
+</g>
+<!-- PromptFood&#45;&gt;PromptTown -->
+<g id="edge12" class="edge">
+<title>PromptFood&#45;&gt;PromptTown</title>
+<path fill="none" stroke="black" d="M101.32,-116.1C102.08,-123.37 102.33,-132.04 102.08,-140.24"/>
+<polygon fill="black" stroke="black" points="98.59,-139.98 101.44,-150.19 105.57,-140.43 98.59,-139.98"/>
 </g>
 <!-- EndGame&#45;&gt;end -->
-<g id="edge11" class="edge">
+<g id="edge13" class="edge">
 <title>EndGame&#45;&gt;end</title>
-<path fill="none" stroke="black" d="M175.42,-79.84C175.42,-72.64 175.42,-64.02 175.42,-55.7"/>
-<polygon fill="black" stroke="black" points="178.92,-55.82 175.42,-45.82 171.92,-55.82 178.92,-55.82"/>
+<path fill="none" stroke="black" d="M219.42,-79.84C219.42,-72.64 219.42,-64.02 219.42,-55.7"/>
+<polygon fill="black" stroke="black" points="222.92,-55.82 219.42,-45.82 215.92,-55.82 222.92,-55.82"/>
 </g>
 </g>
 </svg>
