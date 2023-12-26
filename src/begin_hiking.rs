@@ -2,26 +2,7 @@ use crate::begin_meal::BeginMeal;
 use crate::begin_town::BeginTown;
 use crate::context::Context;
 use crate::state::State;
-
-fn distance_to_town(ctx: &Context) -> Option<f32> {
-    match ctx.town_idx < ctx.towns.len() {
-        true => Some(ctx.towns[ctx.town_idx].mm - ctx.mm),
-        false => None,
-    }
-}
-
-fn distance_to_hike(ctx: &Context) -> (bool, f32) {
-    let range = (ctx.bedtime - ctx.time) * ctx.speed;
-    match distance_to_town(ctx) {
-        Some(distance) => {
-            if !(distance > range) {
-                return (true, distance);
-            }
-        }
-        None => {}
-    }
-    (false, range)
-}
+use crate::util::*;
 
 pub struct BeginHiking {
     ctx: Context,
