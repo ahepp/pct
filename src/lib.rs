@@ -6,6 +6,7 @@ mod begin_town;
 mod context;
 mod end_game;
 mod prompt_food;
+mod prompt_map;
 mod prompt_town;
 mod run;
 mod state;

@@ -2,6 +2,7 @@ use crate::begin_hiking::BeginHiking;
 use crate::context::Context;
 use crate::end_game::EndGame;
 use crate::prompt_food::PromptFood;
+use crate::prompt_map::PromptMap;
 use crate::state::State;
 use crate::util::*;
 
@@ -34,14 +35,16 @@ impl State for PromptTown {
         let days_of_food = self.ctx.food / self.ctx.food_per_day;
         println!("You are {} days from running out of food", days_of_food);
 
-        let actions = vec![Action::Continue, Action::BuyFood, Action::Quit];
+        let actions =
+            vec![Action::Continue, Action::BuyFood, Action::Map, Action::Quit];
         for (i, action) in actions.into_iter().enumerate() {
             println!("{}) {}", i, action);
         }
         println!("What do you want to do? ");
     }
     fn next_state(self: Box<Self>) -> Option<Box<dyn State>> {
-        let actions = vec![Action::Continue, Action::BuyFood, Action::Quit];
+        let actions =
+            vec![Action::Continue, Action::BuyFood, Action::Map, Action::Quit];
         let action = loop {
             let i = retry_usize();
             if i < actions.len() {
@@ -52,6 +55,7 @@ impl State for PromptTown {
         match action {
             Action::Continue => Some(Box::new(BeginHiking::new(self.ctx))),
             Action::BuyFood => Some(Box::new(PromptFood::new(self.ctx))),
+            Action::Map => Some(Box::new(PromptMap::new(self.ctx))),
             Action::Quit => Some(Box::new(EndGame)),
         }
     }
@@ -61,6 +65,7 @@ impl State for PromptTown {
 enum Action {
     Continue,
     BuyFood,
+    Map,
     Quit,
 }
 impl std::fmt::Display for Action {
@@ -68,6 +73,7 @@ impl std::fmt::Display for Action {
         let name = match self {
             Action::Continue => "continue",
             Action::BuyFood => "buy food",
+            Action::Map => "look at map",
             Action::Quit => "quit",
         };
         write!(f, "{}", name)

@@ -9,9 +9,11 @@ digraph states {
     BeginTown -> PromptTown
     PromptTown -> BeginHiking
     PromptTown -> PromptFood
+    PromptTown -> PromptMap
     PromptTown -> EndGame
     BeginMeal -> BeginDay
     BeginMeal -> EndGame
     PromptFood -> PromptTown
+    PromptMap -> PromptTown
     EndGame -> end
 }
