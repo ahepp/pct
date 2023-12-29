@@ -7,7 +7,7 @@ impl State for BeginGameState {
         crate::util::render_delay();
     }
     fn next_state(self, ctx: Context) -> (Option<Event>, Context) {
-        (None, ctx)
+        (Some(Event::Wake(WakeState)), ctx)
     }
 }
 
@@ -17,11 +17,11 @@ mod tests {
 
     #[test]
     fn next_event_none() {
-        let ctx = Context;
+        let ctx = Context { day: 0 };
         let state = Event::BeginGame(BeginGameState);
         match state.next_state(ctx) {
-            (None, _) => return,
-            _ => panic!()
+            (Some(Event::Wake(_)), _) => return,
+            _ => panic!(),
         }
     }
 }

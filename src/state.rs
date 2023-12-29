@@ -11,6 +11,9 @@ pub trait State {
 #[enum_dispatch(State)]
 pub enum Event {
     BeginGame(BeginGameState),
+    Wake(WakeState),
 }
 
-pub struct Context;
+pub struct Context {
+    pub day: u32,
+}
