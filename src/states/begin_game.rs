@@ -17,7 +17,7 @@ mod tests {
 
     #[test]
     fn next_event_none() {
-        let ctx = Context { day: 0 };
+        let ctx = Context::new();
         let state = Event::BeginGame(BeginGameState);
         match state.next_state(ctx) {
             (Some(Event::Wake(_)), _) => return,
