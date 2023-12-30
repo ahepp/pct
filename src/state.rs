@@ -20,6 +20,7 @@ pub struct Context {
     pub day: u32,
     pub mm: f32,
     pub speed: f32,
+    pub time: f32,
     pub waketime: f32,
 }
 impl Context {
@@ -29,6 +30,7 @@ impl Context {
             day: 0,
             mm: 0.0,
             speed: 2.0,
+            time: 0.0,
             waketime: 8.0,
         }
     }

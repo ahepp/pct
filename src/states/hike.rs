@@ -5,9 +5,11 @@ impl State for HikeState {
     fn render(&self, _ctx: &Context) {}
     fn next_state(self, ctx: Context) -> (Option<Event>, Context) {
         let mm = ctx.mm + (ctx.bedtime - ctx.waketime) * ctx.speed;
+        let time = ctx.bedtime;
 
         let mut next_ctx = ctx;
         next_ctx.mm = mm;
+        next_ctx.time = time;
         (Some(Event::Wake(WakeState)), next_ctx)
     }
 }
@@ -41,5 +43,13 @@ mod tests {
         let state = Event::Hike(HikeState);
         let (_, ctx) = state.next_state(ctx);
         assert_eq!(ctx.mm, expected_mm);
+    }
+    #[test]
+    fn next_state_ctx_time_is_bedtime() {
+        let ctx = Context::new();
+        let expected_time = ctx.bedtime;
+        let state = Event::Hike(HikeState);
+        let (_, ctx) = state.next_state(ctx);
+        assert_eq!(ctx.time, expected_time);
     }
 }
