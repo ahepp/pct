@@ -1,10 +1,11 @@
 use crate::context::Context;
 use crate::state::State;
+use crate::states::StartDay;
 
 pub struct BeginGame;
 impl State for BeginGame {
     fn next_state(&self, ctx: Context) -> (Option<Box<dyn State>>, Context) {
-        (None, ctx)
+        (Some(Box::new(StartDay)), ctx)
     }
 
     #[cfg(test)]
@@ -18,12 +19,13 @@ mod test {
     use super::*;
 
     #[test]
-    fn next_state_none() {
+    fn next_state_start_day() {
         let ctx = Context;
         let state = BeginGame;
-        match state.next_state(ctx) {
-            (None, _) => return,
+        let state = match state.next_state(ctx) {
+            (Some(state), _) => state,
             _ => panic!(),
-        }
+        };
+        assert!(state.as_any().is::<StartDay>());
     }
 }
