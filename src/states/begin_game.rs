@@ -6,6 +6,11 @@ impl State for BeginGame {
     fn next_state(&self, ctx: Context) -> (Option<Box<dyn State>>, Context) {
         (None, ctx)
     }
+
+    #[cfg(test)]
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
 }
 
 #[cfg(test)]
