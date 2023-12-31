@@ -17,10 +17,11 @@ impl State for BeginGame {
 #[cfg(test)]
 mod test {
     use super::*;
+    use crate::states::test_util;
 
     #[test]
     fn next_state_start_day() {
-        let ctx = Context;
+        let ctx = test_util::create_context();
         let state = BeginGame;
         let state = match state.next_state(ctx) {
             (Some(state), _) => state,
